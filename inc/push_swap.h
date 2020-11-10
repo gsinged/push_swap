@@ -30,4 +30,20 @@ typedef struct		s_push_swap
 	t_dllist		*nb;
 }					t_ps;
 
+t_dllist			*ft_dllst_new(int n);
+void				ft_dllst_insert_before(t_dllist *lst, t_dllist *new);
+void				ft_dllst_insert_after(t_dllist *lst, t_dllist *new);
+void				ft_dllst_insert_begin(t_dllist **lst0, t_dllist *new);
+void				ft_dllst_insert_end(t_dllist **lst0, t_dllist *new);
+t_dllist			*ft_dllst_begin(t_dllist *cur);
+t_dllist			*ft_dllst_end(t_dllist *cur);
+void				ft_dllst_delone(t_dllist **one);
+void				ft_dllst_delete(t_dllist **lst);
+t_dllist			*ft_dllst_copy_one(t_dllist *one);
+t_dllist			*ft_dllst_copy(t_dllist *a);
+void				ft_dllst_add_sort(t_dllist *a, t_dllist *new);
+t_dllist			*ft_dllst_copy_sort(t_dllist *a);
+
+void				ft_ps_del(t_ps **ps);
+
 #endif

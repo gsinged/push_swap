@@ -114,10 +114,97 @@ static void		ft_dllst_delete_b(t_dllist **lst)
 
 void			ft_dllst_delete(t_dllist **lst)
 {
-	if (!(*lst)->prev)
+	t_dllist	*c;
+
+	if (lst && *lst)
 	{
-		ft_dllst_delete_b(lst);
+		if (!(*lst)->prev)
+		{
+			ft_dllst_delete_b(lst);
+		}
+		else
+		{
+			c = ft_dllst_begin(*lst);
+			ft_dllst_delete_b(&c);
+		}
 	}
+}
+
+t_dllist		*ft_dllst_copy_one(t_dllist *one)
+{
+	t_dllist	*c;
+
+	if (!one)
+		return (NULL);
+	if (!(c = ft_dllst_new(one->n)))
+		return (NULL);
+	return (c);
+}
+
+t_dllist		*ft_dllst_copy(t_dllist *a)
+{
+	t_dllist	*begin;
+	t_dllist	*cur;
+	t_dllist	*c;
+
+	if (!a)
+		return (NULL);
+	a = ft_dllst_begin(a);
+	if (!(begin = ft_dllst_copy_one(a)))
+		return (NULL);
+	cur = begin;
+	a = a->next;
+	while (a)
+	{
+		if (!(c = ft_dllst_copy_one(a)))
+		{
+			ft_dllst_delete(&begin);
+			return (NULL);
+		}
+		cur->next = c;
+		c->prev = cur;
+		cur = cur->next;
+		a = a->next;
+	}
+	return (begin);
+}
+
+void			ft_dllst_add_sort(t_dllist *a, t_dllist *new)
+{
+	a = ft_dllst_begin(a);
+	while (a->next != NULL)
+	{
+		if (new->n <= a->n)
+			break ;
+		a = a->next;
+	}
+	if (new->n <= a->n)
+		ft_dllst_insert_before(a, new);
 	else
-		ft_dllst_delete_b(&(ft_dllst_begin(*lst)));
+		ft_dllst_insert_after(a, new);
+}
+
+t_dllist		*ft_dllst_copy_sort(t_dllist *a)
+{
+	t_dllist	*begin;
+	t_dllist	*c;
+
+	if (!a)
+		return (NULL);
+	a = ft_dllst_begin(a);
+	if (!(begin = ft_dllst_copy_one(a)))
+		return (NULL);
+	a = a->next;
+	while (a)
+	{
+		if (!(c = ft_dllst_copy_one(a)))
+		{
+			ft_dllst_delete(&begin);
+			return (NULL);
+		}
+		ft_dllst_add_sort(begin, c);
+		begin = ft_dllst_begin(begin);
+		a = a->next;
+	}
+	return (begin);
 }
