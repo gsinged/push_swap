@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 t_dllist		*ft_dllst_new(int n)
 {
@@ -207,4 +208,28 @@ t_dllist		*ft_dllst_copy_sort(t_dllist *a)
 		a = a->next;
 	}
 	return (begin);
+}
+
+int				ft_dllst_lenght(t_dllist *d)
+{
+	int		i;
+
+	d = ft_dllst_begin(d);
+	i = 0;
+	while (d)
+	{
+		i++;
+		d = d->next;
+	}
+	return (i);
+}
+
+void		ft_dllst_print(t_dllist *d)
+{
+	d = ft_dllst_begin(d);
+	while (d)
+	{
+		printf("%d\n", d->n);
+		d = d->next;
+	}
 }

@@ -36,10 +36,11 @@ t_ps		*init_ps(t_dllist *a)
 		return (NULL);
 	}
 	ps->nb = c;
+	ps->len = ft_dllst_lenght(ps->a);
 	return (ps);
 }
 
-int			cmp_val_stack_a(t_dllist *a, int n)
+static int	cmp_val_stack_a(t_dllist *a, int n)
 {
 	if (!a)
 		return (0);

@@ -28,6 +28,7 @@ typedef struct		s_push_swap
 	t_dllist		*a;
 	t_dllist		*b;
 	t_dllist		*nb;
+	int				len;
 }					t_ps;
 
 t_dllist			*ft_dllst_new(int n);
@@ -43,6 +44,7 @@ t_dllist			*ft_dllst_copy_one(t_dllist *one);
 t_dllist			*ft_dllst_copy(t_dllist *a);
 void				ft_dllst_add_sort(t_dllist *a, t_dllist *new);
 t_dllist			*ft_dllst_copy_sort(t_dllist *a);
+int					ft_dllst_lenght(t_dllist *d);
 
 void				ft_ps_del(t_ps **ps);
 
