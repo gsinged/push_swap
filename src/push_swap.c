@@ -24,19 +24,15 @@ int			push_swap(int argc, char **argv)
 
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
-
 	ft_ps_del(&ps);
 	return (1);
 }
 
 int			main(int argc, char **argv)
 {
-
-
 	if (argc == 1)
 		return (print_ko());
 	if (!(push_swap(argc, argv)))
 		return (print_ko());
-
 	return (0);
 }

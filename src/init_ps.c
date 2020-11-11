@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	cmp_val_stack_a(t_dllist *a, int n)
+static int			cmp_val_stack_a(t_dllist *a, int n)
 {
 	if (!a)
 		return (1);
@@ -26,7 +26,7 @@ static int	cmp_val_stack_a(t_dllist *a, int n)
 	return (1);
 }
 
-static int	ft_size_nbr(int n)
+static int			ft_size_nbr(int n)
 {
 	int			s;
 	long int	c;
@@ -48,14 +48,12 @@ static int	ft_size_nbr(int n)
 	return (s);
 }
 
-t_dllist	*init_stack_a(int argc, char **argv, int *size)
+static t_dllist		*init_stack_a(int argc, char **argv, int *size, int i)
 {
-	int			i;
 	t_dllist	*a;
 	t_dllist	*c;
 	int			n;
 
-	i = 1;
 	a = NULL;
 	while (i < argc)
 	{
@@ -70,14 +68,15 @@ t_dllist	*init_stack_a(int argc, char **argv, int *size)
 			ft_dllst_delete(&a);
 			return (NULL);
 		}
-		*size < (n = ft_size_nbr(n)) ? *size = n : 0;
+		n = ft_size_nbr(n);
+		*size < n ? *size = n : 0;
 		ft_dllst_insert_end(&a, c);
 		i++;
 	}
 	return (a);
 }
 
-t_ps		*init_ps(int argc, char **argv)
+t_ps				*init_ps(int argc, char **argv)
 {
 	t_dllist	*a;
 	t_ps		*ps;
@@ -88,7 +87,7 @@ t_ps		*init_ps(int argc, char **argv)
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
 		return (NULL);
 	ft_bzero(ps, sizeof(t_ps));
-	if (!(a = init_stack_a(argc, argv, &size)))
+	if (!(a = init_stack_a(argc, argv, &size, 1)))
 		return (ft_ps_del_null(&ps));
 	ps->a = a;
 	ps->size = size;

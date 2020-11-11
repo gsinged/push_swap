@@ -234,7 +234,7 @@ int				ft_dllst_lenght(t_dllist *d)
 	return (i);
 }
 
-void		ft_dllst_print(t_dllist *d)
+void			ft_dllst_print(t_dllist *d)
 {
 	d = ft_dllst_begin(d);
 	while (d)
@@ -244,7 +244,7 @@ void		ft_dllst_print(t_dllist *d)
 	}
 }
 
-void		ft_dllst_change_ab(t_dllist *a)
+void			ft_dllst_change_ab(t_dllist *a)
 {
 	t_dllist	*c;
 
