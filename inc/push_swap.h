@@ -28,7 +28,9 @@ typedef struct		s_push_swap
 {
 	t_dllist		*a;
 	t_dllist		*b;
-	t_dllist		*nb;
+	t_dllist		*sort;
+	int				na;
+	int				nb;
 	int				len;
 	int				size;
 }					t_ps;
@@ -51,5 +53,8 @@ void				ft_dllst_print(t_dllist *d);
 
 t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);
+t_ps				*ft_ps_del_null(t_ps **ps);
+
+void				ft_ps_print_ab(t_ps *ps);
 
 #endif

@@ -85,23 +85,17 @@ t_ps		*init_ps(int argc, char **argv)
 	int			size;
 
 	size = 0;
-	if (!(a = init_stack_a(argc, argv, &size)))
-		return (NULL);
-	ft_dllst_print(a);
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
-	{
-		ft_dllst_delete(&a);
 		return (NULL);
-	}
 	ft_bzero(ps, sizeof(t_ps));
+	if (!(a = init_stack_a(argc, argv, &size)))
+		return (ft_ps_del_null(&ps));
 	ps->a = a;
 	ps->size = size;
 	if (!(c = ft_dllst_copy(a)))
-	{
-		ft_ps_del(&ps);
-		return (NULL);
-	}
-	ps->nb = c;
+		return (ft_ps_del_null(&ps));
+	ps->sort = c;
 	ps->len = ft_dllst_lenght(ps->a);
+	ft_ps_print_ab(ps);
 	return (ps);
 }
