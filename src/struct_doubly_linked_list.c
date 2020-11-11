@@ -87,6 +87,16 @@ t_dllist		*ft_dllst_end(t_dllist *cur)
 	return (cur);
 }
 
+void			ft_dllst_pull_out(t_dllist *c)
+{
+	if (c->prev)
+		c->prev->next = c->next;
+	if (c->next)
+		c->next->prev = c->prev;
+	c->next = NULL;
+	c->prev = NULL;
+}
+
 void			ft_dllst_delone(t_dllist **one)
 {
 	if (one && *one)
@@ -230,7 +240,22 @@ void		ft_dllst_print(t_dllist *d)
 	while (d)
 	{
 		ft_printf("%5d\n", d->n);
-//		printf("%d\n", d->n);
 		d = d->next;
+	}
+}
+
+void		ft_dllst_change_ab(t_dllist *a)
+{
+	t_dllist	*c;
+
+	if (a && a->next)
+	{
+		c = a->next;
+		a->next = c->next;
+		c->next = a;
+		if (a->prev)
+			a->prev->next = c;
+		c->prev = a->prev;
+		a->prev = c;
 	}
 }

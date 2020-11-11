@@ -96,6 +96,8 @@ t_ps		*init_ps(int argc, char **argv)
 		return (ft_ps_del_null(&ps));
 	ps->sort = c;
 	ps->len = ft_dllst_lenght(ps->a);
+	ps->na = ps->len;
+	ps->nb = 0;
 	ft_ps_print_ab(ps);
 	return (ps);
 }

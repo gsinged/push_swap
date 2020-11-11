@@ -42,6 +42,7 @@ void				ft_dllst_insert_begin(t_dllist **lst0, t_dllist *new);
 void				ft_dllst_insert_end(t_dllist **lst0, t_dllist *new);
 t_dllist			*ft_dllst_begin(t_dllist *cur);
 t_dllist			*ft_dllst_end(t_dllist *cur);
+void				ft_dllst_pull_out(t_dllist *c);
 void				ft_dllst_delone(t_dllist **one);
 void				ft_dllst_delete(t_dllist **lst);
 t_dllist			*ft_dllst_copy_one(t_dllist *one);
@@ -50,11 +51,25 @@ void				ft_dllst_add_sort(t_dllist *a, t_dllist *new);
 t_dllist			*ft_dllst_copy_sort(t_dllist *a);
 int					ft_dllst_lenght(t_dllist *d);
 void				ft_dllst_print(t_dllist *d);
+void				ft_dllst_change_ab(t_dllist *a);
 
 t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);
 t_ps				*ft_ps_del_null(t_ps **ps);
 
 void				ft_ps_print_ab(t_ps *ps);
+
+void				move_sa(t_ps *ps);
+void				move_sb(t_ps *ps);
+void				move_ss(t_ps *ps);
+void				move_pa(t_ps *ps);
+void				move_pb(t_ps *ps);
+void				move_ra(t_ps *ps);
+void				move_rb(t_ps *ps);
+void				move_rr(t_ps *ps);
+void				move_rra(t_ps *ps);
+void				move_rrb(t_ps *ps);
+void				move_rrr(t_ps *ps);
+
 
 #endif
