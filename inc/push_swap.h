@@ -52,6 +52,7 @@ t_dllist			*ft_dllst_copy_sort(t_dllist *a);
 int					ft_dllst_lenght(t_dllist *d);
 void				ft_dllst_print(t_dllist *d);
 void				ft_dllst_change_ab(t_dllist *a);
+int					ft_dllst_q_sort(t_dllist *a);
 
 t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);
@@ -70,6 +71,5 @@ void				move_rr(t_ps *ps);
 void				move_rra(t_ps *ps);
 void				move_rrb(t_ps *ps);
 void				move_rrr(t_ps *ps);
-
 
 #endif

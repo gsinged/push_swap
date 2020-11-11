@@ -11,3 +11,15 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+
+int			ft_three(t_ps *ps)
+{
+	while (!ft_dllst_q_sort(ps->a))
+	{
+		move_sa(ps);
+		
+	}
+
+}
