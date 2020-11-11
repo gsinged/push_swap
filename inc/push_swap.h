@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft.h"
+# include "libftprintf.h"
 # include <stdlib.h>
 
 typedef struct		s_dllist
@@ -29,6 +30,7 @@ typedef struct		s_push_swap
 	t_dllist		*b;
 	t_dllist		*nb;
 	int				len;
+	int				size;
 }					t_ps;
 
 t_dllist			*ft_dllst_new(int n);
@@ -45,7 +47,9 @@ t_dllist			*ft_dllst_copy(t_dllist *a);
 void				ft_dllst_add_sort(t_dllist *a, t_dllist *new);
 t_dllist			*ft_dllst_copy_sort(t_dllist *a);
 int					ft_dllst_lenght(t_dllist *d);
+void				ft_dllst_print(t_dllist *d);
 
+t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);
 
 #endif

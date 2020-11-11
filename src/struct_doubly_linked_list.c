@@ -229,7 +229,8 @@ void		ft_dllst_print(t_dllist *d)
 	d = ft_dllst_begin(d);
 	while (d)
 	{
-		printf("%d\n", d->n);
+		ft_printf("%5d\n", d->n);
+//		printf("%d\n", d->n);
 		d = d->next;
 	}
 }

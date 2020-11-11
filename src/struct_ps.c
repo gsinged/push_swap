@@ -24,3 +24,16 @@ void		ft_ps_del(t_ps **ps)
 		*ps = NULL;
 	}
 }
+
+void		ft_ps_print_ab(t_ps *ps)
+{
+	int			len_a;
+	int			len_b;
+	t_dllist	*a;
+	t_dllist	*b;
+
+	len_a = ft_dllst_lenght(ps->a);
+	len_b = ft_dllst_lenght(ps->b);
+	a = ps->a;
+	b = ps->b;
+}
