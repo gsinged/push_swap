@@ -20,6 +20,7 @@
 typedef struct		s_dllist
 {
 	int				n;
+	int				chunk;
 	struct s_dllist	*next;
 	struct s_dllist	*prev;
 }					t_dllist;
@@ -33,6 +34,8 @@ typedef struct		s_push_swap
 	int				nb;
 	int				len;
 	int				size;
+	int				last;
+	int				view;
 }					t_ps;
 
 t_dllist			*ft_dllst_new(int n);
@@ -60,6 +63,8 @@ void				ft_ps_del(t_ps **ps);
 t_ps				*ft_ps_del_null(t_ps **ps);
 
 void				ft_ps_print_ab(t_ps *ps);
+
+int					ft_move(t_ps *ps, int m);
 
 void				move_sa(t_ps *ps);
 void				move_sb(t_ps *ps);

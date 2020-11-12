@@ -45,3 +45,47 @@ int			ft_three(t_ps *ps)
 		ft_printf("KKKKKOOOOO\n");
 	return (0);
 }
+
+
+void		ps_step1_f(t_ps *ps, int m)
+{
+	t_dllist	*a;
+	t_dllist	*end;
+
+	a = ft_dllst_begin(ps->a);
+	end = ft_dllst_end(ps->a);
+	if (a->n > a->next->n)
+	{
+		ft_move(ps, 11);
+	}
+	while (a->n > end->n)
+	{
+		ft_move(ps, 41);
+		end = ft_dllst_end(ps->a);
+	}
+}
+
+void		ps_step1_chunk(t_ps *ps, int m)
+{
+	
+}
+
+void		ps_step_1(t_ps *ps)
+{
+	while (ps->na > 3)
+	{
+
+	}
+}
+
+
+int			ft_ps(t_ps *ps)
+{
+
+}
+
+
+
+
+
+
