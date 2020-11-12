@@ -295,3 +295,32 @@ int				ft_dllst_q_sort(t_dllist *a)
 	}
 	return (1);
 }
+
+int				ft_dllst_position_min(t_dllist *d, t_dllist	**lst)
+{
+	int			i;
+	int			min;
+	int			p;
+	t_dllist	*c;
+
+	d = ft_dllst_begin(d);
+	min = d->n;
+	c = d;
+	p = 1;
+	d = d->next;
+	i = 2;
+	while (d)
+	{
+		if (d->n < min)
+		{
+			min = d->n;
+			c = d;
+			p = i;
+		}
+		d = d->next;
+		i++;
+	}
+	if (lst)
+		*lst = c;
+	return (p);
+}
