@@ -72,7 +72,7 @@ int			ps_step1_top(t_ps *ps, int m)
 		return (0);
 	ps_step1_f(ps, m);
 	ps->a->chunk = ps->chunk;
-	ft_move(ps, 21);
+	ft_move(ps, 22);
 	return (1);
 }
 

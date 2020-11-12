@@ -360,18 +360,19 @@ int				ft_dllst_min_n(t_dllist *a)
 	return (min);
 }
 
-int				ft_dllst_medium_n(t_dllist *a)
+int				ft_dllst_medium_n(t_dllist *d)
 {
-	int		mid;
-	int		p;
-	int		next;
+	int			mid;
+	int			p;
+	int			next;
+	t_dllist	*a;
 
-	mid = ft_dllst_lenght(a);
+	mid = ft_dllst_lenght(d);
 	p = mid / 2;
-	mid = ft_dllst_min_n(a);
+	mid = ft_dllst_min_n(d);
 	while (p > 0)
 	{
-		a = ft_dllst_begin(a);
+		a = ft_dllst_begin(d);
 		next = a->n;
 		while (a)
 		{
