@@ -26,6 +26,8 @@ int			push_swap(int argc, char **argv)
 		return (0);
 	if (ps->len <= 3)
 		ft_three(ps);
+	else
+		ft_ps(ps);
 
 
 	ft_ps_del(&ps);

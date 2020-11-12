@@ -81,12 +81,12 @@ int				ft_moves_exc(t_ps *ps, int m)
 	return (1);
 }
 
-int				ft_move(t_ps *ps, int m)
+void			ft_move(t_ps *ps, int op)
 {
-	if (!ft_moves_exc(ps, m))
+	if (!ft_moves_exc(ps, op))
 	{
-		ft_move_n(ps, m);
-		ps->last = m;
+		ft_move_n(ps, op);
+		ps->last = op;
 	}
 }
 
