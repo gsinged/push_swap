@@ -17,27 +17,15 @@
 int			ft_three(t_ps *ps)
 {
 	while (!ft_dllst_q_sort(ps->a))
-	{
-		move_sa(ps);
-		ft_printf("sa\n");
-		ft_ps_print_ab(ps);
-	}
+		ft_move(ps, 11);
 	if (ft_dllst_q_sort(ps->a) == 1)
 		return (1);
 	else
 	{
 		if (ft_dllst_position_min(ps->a, NULL) == 2)
-		{
-			move_ra(ps);
-			ft_printf("ra\n");
-			ft_ps_print_ab(ps);
-		}
+			ft_move(ps, 31);
 		else
-		{
-			move_rra(ps);
-			ft_printf("rra\n");
-			ft_ps_print_ab(ps);
-		}
+			ft_move(ps, 41);
 	}
 	if (ft_dllst_q_sort(ps->a) == 1)
 		return (1);
@@ -219,8 +207,7 @@ void		ps_step_1(t_ps *ps)
 int			ft_ps(t_ps *ps)
 {
 	ps_step_1(ps);
-	if (ps->last)
-		ft_push_move(ps);
+	ft_three(ps);
 	return (0);
 }
 

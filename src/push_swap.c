@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int			print_ko(void)
+int			print_error(void)
 {
-	ft_putendl("KO");
+	ft_putendl("Error");
 	return (0);
 }
 
@@ -31,7 +31,8 @@ int			push_swap(int argc, char **argv)
 		ft_three(ps);
 	else
 		ft_ps(ps);
-
+	if (ps->last)
+		ft_push_move(ps);
 
 	ft_ps_del(&ps);
 	return (1);
@@ -40,8 +41,8 @@ int			push_swap(int argc, char **argv)
 int			main(int argc, char **argv)
 {
 	if (argc == 1)
-		return (print_ko());
+		return (print_error());
 	if (!(push_swap(argc, argv)))
-		return (print_ko());
+		return (print_error());
 	return (0);
 }

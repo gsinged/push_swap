@@ -16,8 +16,7 @@ void		ft_ps_del(t_ps **ps)
 {
 	if (ps && *ps)
 	{
-		////34ertertgrertgh!!!!!!!!!!!!!!
-		(*ps)->a = (*ps)->a->next;
+
 		ft_dllst_delete(&((*ps)->a));
 		ft_dllst_delete(&((*ps)->b));
 		ft_dllst_delete(&((*ps)->sort));
