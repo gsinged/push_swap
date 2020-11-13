@@ -12,6 +12,39 @@
 
 #include "push_swap.h"
 
+void			ft_push_move_test(t_ps *ps, int op)
+{
+	if (0)
+	{
+		ft_printf("============TEST==========\n");
+		if (op == 11)
+			ft_putstr("sa\n");
+		else if (op == 12)
+			ft_putstr("sb\n");
+		else if (op == 13)
+			ft_putstr("ss\n");
+		else if (op == 21)
+			ft_putstr("ps\n");
+		else if (op == 22)
+			ft_putstr("pb\n");
+		else if (op == 31)
+			ft_putstr("ra\n");
+		else if (op == 32)
+			ft_putstr("rb\n");
+		else if (op == 33)
+			ft_putstr("rr\n");
+		else if (op == 41)
+			ft_putstr("rra\n");
+		else if (op == 42)
+			ft_putstr("rrb\n");
+		else if (op == 43)
+			ft_putstr("rrr\n");
+//	if (ps->view)
+		ft_ps_print_ab(ps);
+		ft_printf("============TEST_END==========\n\n\n");
+	}
+}
+
 void			ft_push_move(t_ps *ps)
 {
 	if (ps->last == 11)
@@ -69,6 +102,7 @@ int				ft_moves_exc(t_ps *ps, int m)
 		if (m / 10 == 2)
 		{
 			ft_move_n(ps, m);
+			ft_push_move_test(ps, m);
 			ps->last = 0;
 		}
 		else
@@ -77,16 +111,21 @@ int				ft_moves_exc(t_ps *ps, int m)
 			ps->last = (m / 10) * 10 + 3;
 			ft_push_move(ps);
 		}
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void			ft_move(t_ps *ps, int op)
 {
 	if (!ft_moves_exc(ps, op))
 	{
+		if (ps->last)
+			ft_push_move(ps);
 		ft_move_n(ps, op);
 		ps->last = op;
+
+		ft_push_move_test(ps, op);
 	}
 }
 

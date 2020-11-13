@@ -68,7 +68,7 @@ void		ps_step1_f(t_ps *ps, int m)
 int			ps_step1_top(t_ps *ps, int m)
 {
 	ps->a = ft_dllst_begin(ps->a);
-	if (ps->a->n > m)
+	if (ps->a->n >= m)
 		return (0);
 	ps_step1_f(ps, m);
 	ps->a->chunk = ps->chunk;
@@ -84,11 +84,11 @@ int			ps_step1_bottom(t_ps *ps, int m)
 	ps->a = ft_dllst_begin(ps->a);
 	if (end->n >= m)
 		return (0);
-	ft_move(ps, 31);
+	ft_move(ps, 41);
 	return (1);
 }
 
-int			ps_step1_st_e(t_ps *ps, int m)
+int			ps_step1_sec_end(t_ps *ps, int m)
 {
 	t_dllist	*end;
 
@@ -164,7 +164,8 @@ int			ps_step1_ra_rra(t_ps *ps, int m)
 	int		top;
 	int		bottom;
 
-	top = ps_step_ra(ps , m) - 1;
+	top = ps_step_ra(ps , m);
+	top > 1 ? top-- : 0;
 	bottom = ps_step_rra(ps, m);
 	if (!top && !bottom)
 		return (0);
@@ -193,7 +194,7 @@ void		ps_step1_chunk(t_ps *ps, int m)
 	{
 		if (ps_step1_top(ps, m))
 			i = 1;
-		else if ((ps_step1_st_e(ps, m)))
+		else if ((ps_step1_sec_end(ps, m)))
 			i = 1;
 		else if (ps_step1_bottom(ps, m))
 			i = 1;
@@ -218,6 +219,8 @@ void		ps_step_1(t_ps *ps)
 int			ft_ps(t_ps *ps)
 {
 	ps_step_1(ps);
+	if (ps->last)
+		ft_push_move(ps);
 	return (0);
 }
 

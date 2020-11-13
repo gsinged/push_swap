@@ -16,6 +16,8 @@ void		ft_ps_del(t_ps **ps)
 {
 	if (ps && *ps)
 	{
+		////34ertertgrertgh!!!!!!!!!!!!!!
+		(*ps)->a = (*ps)->a->next;
 		ft_dllst_delete(&((*ps)->a));
 		ft_dllst_delete(&((*ps)->b));
 		ft_dllst_delete(&((*ps)->sort));
@@ -44,7 +46,7 @@ static void	print_ab(int p, t_dllist **d, t_ps *ps)
 	}
 	while (p < 0)
 	{
-		ft_printf("%*c\t%*d\n", ps->size, ' ', ps->size, cur->n);
+		ft_printf("%*c\t%*d %d\n", ps->size, ' ', ps->size, cur->n, cur->chunk);
 		cur = cur->next;
 		p++;
 	}
@@ -65,10 +67,11 @@ void		ft_ps_print_ab(t_ps *ps)
 	print_ab(len_a - len_b, (len_a - len_b) > 0 ? &a : &b, ps);
 	while (a && b)
 	{
-		ft_printf("%*d\t%*d\n", ps->size, a->n, ps->size, b->n);
+		ft_printf("%*d\t%*d %d\n", ps->size, a->n, ps->size, b->n, b->chunk);
 		a = a->next;
 		b = b->next;
 	}
 	ft_printf("%*c\t%*c\n", ps->size, '-', ps->size, '-');
 	ft_printf("%*c\t%*c\n", ps->size, 'a', ps->size, 'b');
+	ft_putstr("----------\n\n");
 }

@@ -24,6 +24,9 @@ int			push_swap(int argc, char **argv)
 
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
+
+	ps->view = 1;
+
 	if (ps->len <= 3)
 		ft_three(ps);
 	else

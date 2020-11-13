@@ -69,6 +69,7 @@ t_ps				*ft_ps_del_null(t_ps **ps);
 void				ft_ps_print_ab(t_ps *ps);
 
 void				ft_move(t_ps *ps, int op);
+void				ft_push_move(t_ps *ps);
 
 void				move_sa(t_ps *ps);
 void				move_sb(t_ps *ps);

@@ -137,6 +137,7 @@ void			ft_dllst_delete(t_dllist **lst)
 		{
 			c = ft_dllst_begin(*lst);
 			ft_dllst_delete_b(&c);
+			*lst = NULL;
 		}
 	}
 }
@@ -366,21 +367,31 @@ int				ft_dllst_medium_n(t_dllist *d)
 	int			p;
 	int			next;
 	t_dllist	*a;
+	int			i;
 
 	mid = ft_dllst_lenght(d);
 	p = mid / 2;
 	mid = ft_dllst_min_n(d);
+	i = 1;
 	while (p > 0)
 	{
 		a = ft_dllst_begin(d);
-		next = a->n;
+		next = mid;
 		while (a)
 		{
-			if (next > mid)
-				if (next < a->n)
+			if (a->n > mid && i)
+			{
+				next = a->n;
+				i = 0;
+			}
+			if (a->n > mid)
+			{
+				if (next > a->n)
 					next = a->n;
+			}
 			a = a->next;
 		}
+		i = 1;
 		mid = next;
 		p--;
 	}
