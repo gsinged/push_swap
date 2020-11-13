@@ -14,7 +14,7 @@
 
 void			ft_push_move_test(t_ps *ps, int op)
 {
-	if (0)
+	if (1)
 	{
 		ft_printf("============TEST==========\n");
 		if (op == 11)

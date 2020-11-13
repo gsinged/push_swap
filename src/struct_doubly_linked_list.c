@@ -419,7 +419,7 @@ int				ft_dllst_min_n_chunk(t_dllist *a, int ch)
 	a = ft_dllst_begin(a);
 	while (a && a->chunk != ch)
 		a = a->next;
-	min = a->chunk;
+	min = a->n;
 	while (a)
 	{
 		if (a->chunk == ch && min > a->n)
@@ -440,7 +440,7 @@ int				ft_dllst_medium_n_chunk(t_dllist *d, int ch)
 	mid = ft_dllst_lenght_chunk(d, ch);
 	p = mid / 2;
 	mid = ft_dllst_min_n_chunk(d, ch);
-	i = 1;;
+	i = 1;
 	while (p > 0)
 	{
 		a = ft_dllst_begin(d);
@@ -478,4 +478,21 @@ int				ft_dllst_max_chunk(t_dllist *a)
 		a = a->next;
 	}
 	return (ch);
+}
+
+int				ft_dllst_max_n_chunk(t_dllist *a, int ch)
+{
+	int		max;
+
+	a = ft_dllst_begin(a);
+	while (a && a->chunk != ch)
+		a = a->next;
+	max = a->chunk;
+	while (a)
+	{
+		if (a->chunk == ch && max < a->n)
+			max = a->n;
+		a = a->next;
+	}
+	return (max);
 }

@@ -16,5 +16,6 @@ int			ft_ps(t_ps *ps)
 {
 	ps_step_1(ps);
 	ft_three(ps);
+	ps_step_2(ps);
 	return (0);
 }

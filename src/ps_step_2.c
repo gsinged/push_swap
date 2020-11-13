@@ -18,15 +18,15 @@ void		ps_step2_f(t_ps *ps, int m)
 {
 	t_dllist	*end;
 
-	end = ft_dllst_end(ps->a);
-	if (ps->b->n > ps->b->next->n)
+	end = ft_dllst_end(ps->b);
+	if (ps->b->n < ps->b->next->n)
 	{
 		ft_move(ps, 12);
 	}
-	while (ps->b->n > end->n)
+	while (ps->b->n < end->n)
 	{
 		ft_move(ps, 42);
-		end = ft_dllst_end(ps->a);
+		end = ft_dllst_end(ps->b);
 	}
 	ps->b = ft_dllst_begin(ps->b);
 }
@@ -34,7 +34,7 @@ void		ps_step2_f(t_ps *ps, int m)
 int			ps_step2_top(t_ps *ps, int m)
 {
 	ps->b = ft_dllst_begin(ps->b);
-	if (ps->b->n >= m)
+	if (ps->b->n < m)
 		return (0);
 	ps_step2_f(ps, m);
 	ps->b->chunk = ps->chunk;
@@ -48,7 +48,7 @@ int			ps_step2_bottom(t_ps *ps, int m)
 
 	end = ft_dllst_end(ps->b);
 	ps->b = ft_dllst_begin(ps->b);
-	if (end->n >= m)
+	if (end->n < m)
 		return (0);
 	ft_move(ps, 42);
 	return (1);
@@ -60,43 +60,43 @@ int			ps_step2_sec_end(t_ps *ps, int m)
 
 	ps->b = ft_dllst_begin(ps->b);
 	end = ft_dllst_end(ps->b);
-	if (ps->b->next->n < m && ps->b->next->n < end->n)
+	if (ps->b->next->n >= m && ps->b->next->n > end->n)
 		ft_move(ps, 32);
 	else
 		return (0);
 	return (ps_step2_top(ps, m));
 }
 
-int			ps_step_ra_chunk(t_ps *ps, int m, int ch)
+int			ps_step_rb(t_ps *ps, int m)
 {
 	t_dllist	*a;
 	int			i;
 
 	i = 1;
 	a = ft_dllst_begin(ps->b);
-	while (a->n >= m && a->chunk == ch)
+	while (a && a->n < m)
 	{
 		a = a->next;
 		i++;
 	}
-	if (a->n < m)
+	if (a && a->n >= m)
 		return (i);
 	return (0);
 }
 
-int			ps_step_rra_chunk(t_ps *ps, int m, int ch)
+int			ps_step_rrb(t_ps *ps, int m)
 {
 	t_dllist	*end;
 	int			i;
 
 	i = 1;
-	end = ft_dllst_end(ps->a);
-	while (end->n >= m && end->chunk == ch)
+	end = ft_dllst_end(ps->b);
+	while (end && end->n < m)
 	{
 		end = end->prev;
 		i++;
 	}
-	if (end->n < m)
+	if (end && end->n >= m)
 		return (i);
 	return (0);
 }
@@ -108,7 +108,7 @@ void		ps_step2_ra_rra_b(t_ps *ps, int n)
 
 	a = ft_dllst_get_top_n(ps->b, n + 1);
 	b = ft_dllst_get_bottom_n(ps->b, n);
-	if (a->n < b->n)
+	if (a->n > b->n)
 	{
 		while (n-- > 0)
 			ft_move(ps, 32);
@@ -120,14 +120,14 @@ void		ps_step2_ra_rra_b(t_ps *ps, int n)
 	}
 }
 
-int			ps_step2_ra_rra(t_ps *ps, int m, int ch)
+int			ps_step2_ra_rra(t_ps *ps, int m)
 {
 	int		top;
 	int		bottom;
 
-	top = ps_step_ra_chunk(ps, m, ch);
+	top = ps_step_rb(ps, m);
 	top > 1 ? top-- : 0;
-	bottom = ps_step_rra_chunk(ps, m, ch);
+	bottom = ps_step_rrb(ps, m);
 	if (!top && !bottom)
 		return (0);
 	else if ((top && !bottom) || (top < bottom && top != 0))
@@ -159,19 +159,29 @@ void		ps_step2_chunk(t_ps *ps, int m, int ch)
 			i = 1;
 		else if (ps_step2_bottom(ps, m))
 			i = 1;
-		else if (ps_step2_ra_rra(ps, m, ch))
+		else if (ps_step2_ra_rra(ps, m))
 			i = 1;
 		else
 			i = 0;
 	}
 }
 
+void		ps_step2_two(t_ps *ps, int ch)
+{
+
+}
+
 void		ps_step_2(t_ps *ps)
 {
 	int		m;
 	int		ch;
+	int		len;
 
 	ch = ft_dllst_max_chunk(ps->b);
+	len = ft_dllst_lenght_chunk(ps->b, ch);
+
 	m = ft_dllst_medium_n_chunk(ps->b, ch);
+//	if (len == 2)
+//		m++;
 	ps_step2_chunk(ps, m, ch);
 }

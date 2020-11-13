@@ -63,6 +63,7 @@ t_dllist			*ft_dllst_get_bottom_n(t_dllist *a, int n);
 int					ft_dllst_medium_n(t_dllist *a);
 int					ft_dllst_medium_n_chunk(t_dllist *d, int ch);
 int					ft_dllst_max_chunk(t_dllist *a);
+int					ft_dllst_lenght_chunk(t_dllist *d, int ch);
 
 t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);
@@ -88,5 +89,6 @@ void				move_rrr(t_ps *ps);
 int					ft_ps(t_ps *ps);
 int					ft_three(t_ps *ps);
 void				ps_step_1(t_ps *ps);
+void				ps_step_2(t_ps *ps);
 
 #endif
