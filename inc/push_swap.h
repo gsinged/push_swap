@@ -61,6 +61,8 @@ int					ft_dllst_position_min(t_dllist *d, t_dllist	**lst);
 t_dllist			*ft_dllst_get_top_n(t_dllist *a, int n);
 t_dllist			*ft_dllst_get_bottom_n(t_dllist *a, int n);
 int					ft_dllst_medium_n(t_dllist *a);
+int					ft_dllst_medium_n_chunk(t_dllist *d, int ch);
+int					ft_dllst_max_chunk(t_dllist *a);
 
 t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);

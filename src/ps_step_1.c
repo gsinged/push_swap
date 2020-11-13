@@ -34,7 +34,6 @@ void		ps_step1_f(t_ps *ps, int m)
 {
 	t_dllist	*end;
 
-	ps->a = ft_dllst_begin(ps->a);
 	end = ft_dllst_end(ps->a);
 	if (ps->a->n > ps->a->next->n)
 	{
@@ -129,7 +128,7 @@ void		ps_step1_ra_rra_b(t_ps *ps, int n)
 
 	a = ft_dllst_get_top_n(ps->a, n + 1);
 	b = ft_dllst_get_bottom_n(ps->a, n);
-	if (a < b)
+	if (a->n < b->n)
 	{
 		while (n-- > 0)
 			ft_move(ps, 31);

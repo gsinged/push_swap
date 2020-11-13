@@ -38,13 +38,13 @@ static void	print_ab(int p, t_dllist **d, t_ps *ps)
 	cur = *d;
 	while (p > 0)
 	{
-		ft_printf("%*d\t%*c\n", ps->size, cur->n, ps->size, ' ');
+		ft_printf("%*d %d\t%*c\n", ps->size, cur->n, cur->chunk, ps->size, ' ');
 		cur = cur->next;
 		p--;
 	}
 	while (p < 0)
 	{
-		ft_printf("%*c\t%*d %d\n", ps->size, ' ', ps->size, cur->n, cur->chunk);
+		ft_printf("%*c  \t%*d %d\n", ps->size, ' ', ps->size, cur->n, cur->chunk);
 		cur = cur->next;
 		p++;
 	}
@@ -57,6 +57,7 @@ void		ft_ps_print_ab(t_ps *ps)
 	int			len_b;
 	t_dllist	*a;
 	t_dllist	*b;
+	static int	i = 0;
 
 	len_a = ft_dllst_lenght(ps->a);
 	len_b = ft_dllst_lenght(ps->b);
@@ -65,11 +66,11 @@ void		ft_ps_print_ab(t_ps *ps)
 	print_ab(len_a - len_b, (len_a - len_b) > 0 ? &a : &b, ps);
 	while (a && b)
 	{
-		ft_printf("%*d\t%*d %d\n", ps->size, a->n, ps->size, b->n, b->chunk);
+		ft_printf("%*d %d\t%*d %d\n", ps->size, a->n, a->chunk, ps->size, b->n, b->chunk);
 		a = a->next;
 		b = b->next;
 	}
 	ft_printf("%*c\t%*c\n", ps->size, '-', ps->size, '-');
 	ft_printf("%*c\t%*c\n", ps->size, 'a', ps->size, 'b');
-	ft_putstr("----------\n\n");
+	ft_printf("-----%d-----\n\n", ++i);
 }
