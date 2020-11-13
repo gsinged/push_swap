@@ -16,7 +16,6 @@ void		ft_ps_del(t_ps **ps)
 {
 	if (ps && *ps)
 	{
-
 		ft_dllst_delete(&((*ps)->a));
 		ft_dllst_delete(&((*ps)->b));
 		ft_dllst_delete(&((*ps)->sort));

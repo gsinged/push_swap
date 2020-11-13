@@ -124,11 +124,9 @@ void			ft_move(t_ps *ps, int op)
 			ft_push_move(ps);
 		ft_move_n(ps, op);
 		ps->last = op;
-
 		ft_push_move_test(ps, op);
 	}
 }
-
 
 void			move_sa(t_ps *ps)
 {

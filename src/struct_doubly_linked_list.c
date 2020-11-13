@@ -297,7 +297,7 @@ int				ft_dllst_q_sort(t_dllist *a)
 	return (1);
 }
 
-int				ft_dllst_position_min(t_dllist *d, t_dllist	**lst)
+int				ft_dllst_position_min(t_dllist *d, t_dllist **lst)
 {
 	int			i;
 	int			min;

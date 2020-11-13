@@ -24,16 +24,13 @@ int			push_swap(int argc, char **argv)
 
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
-
 	ps->view = 1;
-
 	if (ps->len <= 3)
 		ft_three(ps);
 	else
 		ft_ps(ps);
 	if (ps->last)
 		ft_push_move(ps);
-
 	ft_ps_del(&ps);
 	return (1);
 }
