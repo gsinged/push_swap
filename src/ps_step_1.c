@@ -196,3 +196,13 @@ void		ps_step_1(t_ps *ps)
 		ps_step1_chunk(ps, m);
 	}
 }
+
+void		ps_step_3(t_ps *ps)
+{
+	int		m;
+	int		ch;
+
+	ch = ft_dllst_max_chunk(ps->a);
+	m = ft_dllst_medium_n_chunk(ps->a, ch);
+	ps_step1_chunk(ps, m);
+}

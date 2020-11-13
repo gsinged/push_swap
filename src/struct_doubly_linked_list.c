@@ -253,6 +253,8 @@ void			ft_dllst_change_ab(t_dllist *a)
 	{
 		c = a->next;
 		a->next = c->next;
+		if (c->next)
+			c->next->prev = a;
 		c->next = a;
 		if (a->prev)
 			a->prev->next = c;

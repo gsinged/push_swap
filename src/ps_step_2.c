@@ -145,7 +145,7 @@ int			ps_step2_ra_rra(t_ps *ps, int m)
 	return (1);
 }
 
-void		ps_step2_chunk(t_ps *ps, int m, int ch)
+void		ps_step2(t_ps *ps, int m)
 {
 	int		i;
 
@@ -166,22 +166,12 @@ void		ps_step2_chunk(t_ps *ps, int m, int ch)
 	}
 }
 
-void		ps_step2_two(t_ps *ps, int ch)
-{
-
-}
-
 void		ps_step_2(t_ps *ps)
 {
 	int		m;
 	int		ch;
-	int		len;
 
 	ch = ft_dllst_max_chunk(ps->b);
-	len = ft_dllst_lenght_chunk(ps->b, ch);
-
 	m = ft_dllst_medium_n_chunk(ps->b, ch);
-//	if (len == 2)
-//		m++;
-	ps_step2_chunk(ps, m, ch);
+	ps_step2(ps, m);
 }

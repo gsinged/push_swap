@@ -90,5 +90,6 @@ int					ft_ps(t_ps *ps);
 int					ft_three(t_ps *ps);
 void				ps_step_1(t_ps *ps);
 void				ps_step_2(t_ps *ps);
+void				ps_step_3(t_ps *ps);
 
 #endif
