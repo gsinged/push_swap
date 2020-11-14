@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static int	ft_tp6_process(t_frmt_spec *f)

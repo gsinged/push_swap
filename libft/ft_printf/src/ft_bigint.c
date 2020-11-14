@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void		ft_bigint_copy(unsigned long long *a, unsigned long long *b)
 {

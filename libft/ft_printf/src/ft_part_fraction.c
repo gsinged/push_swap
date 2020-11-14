@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static void		ft_p_f_equal_parts(unsigned long long *p, unsigned int pow)
 {

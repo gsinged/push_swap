@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static void	ft_tp2_print_l(unsigned long long *bgi, unsigned long long *frc, \

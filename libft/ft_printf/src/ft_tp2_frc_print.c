@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static void		ft_frc_putllu_n_p(unsigned long long n, int len, int p)
 {

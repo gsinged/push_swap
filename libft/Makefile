@@ -11,11 +11,13 @@
 # **************************************************************************** #
 
 NAME = libft.a
+
+CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
-C_DIR = srcs
-O_DIR = objs
-H_DIR = includes
+C_DIR = ./src/
+O_DIR = ./obj/
+H_DIR = ./inc/
 
 ALL_C = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
         ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
@@ -33,23 +35,21 @@ ALL_C = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c
 
 ALL_O = $(patsubst %.c, %.o, $(ALL_C))
 
-SRCS = $(patsubst %, $(C_DIR)/%, $(ALL_C))
-OBJS = $(patsubst %, $(O_DIR)/%, $(ALL_O))
+SRC = $(patsubst %, $(C_DIR)%, $(ALL_C))
+OBJ = $(patsubst %, $(O_DIR)%, $(ALL_O))
 
 all: $(NAME)
 
 o_dir:
-	@if ! [ -d $(O_DIR) ]; then mkdir $(O_DIR); fi;
+	@mkdir -p $(O_DIR)
 
 $(NAME): o_dir $(OBJS)
-#	@gcc $(FLAGS) -c $< -o $@ -I. $(SRCC)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
-$(O_DIR)/%.o: $(C_DIR)/%.c
+$(O_DIR)%.o: $(C_DIR)%.c
 	@make o_dir
-#	echo "\033[1m\033[38;2;255;255;0mCompiling : \033[7m$<\033[0m\033[1m\033[38;2;255;255;0m <<\033[0m";
-	@gcc $(FLAGS) -c $< -o $@ -I./$(H_DIR);
+	@$(CC) $(FLAGS) -c $< -o $@ -I./$(H_DIR);
 
 clean:
 	@rm -rf $(O_DIR)

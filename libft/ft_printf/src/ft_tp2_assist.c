@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 void	ft_get_number(t_fnum *fn, long double ld, unsigned long long *hf)
 {

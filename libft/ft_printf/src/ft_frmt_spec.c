@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 #include <stdlib.h>
 
 t_frmt_spec		*ft_new_frmt_spec(void)

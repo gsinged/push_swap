@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static long long int	ft_take_number(t_frmt_spec *f, va_list arg, char *llu)
 {

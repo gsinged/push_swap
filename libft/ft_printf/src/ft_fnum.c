@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libftprintf.h"
+#include "libft.h"
 
 t_fnum	*ft_fnum_new(void)
 {

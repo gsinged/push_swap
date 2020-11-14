@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static char		*ft_flag_pars(char *s, t_frmt_spec *f)
 {

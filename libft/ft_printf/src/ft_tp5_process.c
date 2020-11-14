@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
 static void	ft_tp5_w(t_frmt_spec *f, unsigned long long n, int len, char sign)
 {
