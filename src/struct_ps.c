@@ -57,7 +57,7 @@ void		ft_ps_print_ab(t_ps *ps)
 	int			len_b;
 	t_dllist	*a;
 	t_dllist	*b;
-//	static unsigned int	i = 0;
+	static unsigned int	i = 0;
 
 	len_a = ft_dllst_lenght(ps->a);
 	len_b = ft_dllst_lenght(ps->b);
@@ -72,7 +72,7 @@ void		ft_ps_print_ab(t_ps *ps)
 	}
 	ft_printf("%*c\t%*c\n", ps->size, '-', ps->size, '-');
 	ft_printf("%*c\t%*c\n", ps->size, 'a', ps->size, 'b');
-//	ft_printf("-----%d-----\n\n", ++i);
+	ft_printf("-----%d-----\n\n", ++i);
 
 //	if (i == 975)
 //		i = 975;

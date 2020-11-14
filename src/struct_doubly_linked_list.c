@@ -30,12 +30,15 @@ void			ft_dllst_insert_before(t_dllist *lst, t_dllist *new)
 	new->prev = lst->prev;
 	if (lst->prev)
 		lst->prev->next = new;
+	lst->prev = new;
 }
 
 void			ft_dllst_insert_after(t_dllist *lst, t_dllist *new)
 {
 	new->next = lst->next;
 	new->prev = lst;
+	if (lst->next)
+		lst->next->prev = new;
 	lst->next = new;
 }
 
@@ -545,11 +548,14 @@ int				ft_dllst_position_max(t_dllist *d, t_dllist **lst)
 
 int				ft_dllst_test(t_dllist *a)
 {
+	if (!a)
+		return (1);
 	a = ft_dllst_begin(a);
 	while (a->next)
 	{
 		if (a->next->prev != a)
 			return (0);
+		a = a->next;
 	}
 	return (1);
 }

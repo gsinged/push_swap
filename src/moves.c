@@ -14,7 +14,7 @@
 
 void			ft_push_move_test(t_ps *ps, int op)
 {
-	if (1)
+	if (0)
 	{
 		ft_printf("============TEST==========\n");
 		if (op == 11)
@@ -191,7 +191,7 @@ void			move_pb(t_ps *ps)
 		ps->nb++;
 	}
 	if (!(ft_dllst_test(ps->a)))
-		ft_printf("ERROR\n");
+		ft_printf("ERROR_pb_a\n");
 	if (!(ft_dllst_test(ps->b)))
-		ft_printf("ERROR\n");
+		ft_printf("ERROR_pb_b\n");
 }
