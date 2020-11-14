@@ -161,6 +161,24 @@ int			ps_step1_ra_rra(t_ps *ps, int m)
 	return (1);
 }
 
+void		ps_step3_sort(t_ps *ps)
+{
+	int			i;
+	t_dllist	*min;
+
+	i = ft_dllst_position_min(ps->a, &min);
+	if (i <= (ps->na / 2) + 1)
+	{
+		while (ps->a != min)
+			ft_move(ps, 31);
+	}
+	else
+	{
+		while (ps->a != min)
+			ft_move(ps, 41);
+	}
+}
+
 void		ps_step1_chunk(t_ps *ps, int m)
 {
 	int		i;
@@ -169,6 +187,11 @@ void		ps_step1_chunk(t_ps *ps, int m)
 	i = 1;
 	while (i)
 	{
+		if (ft_dllst_q_sort(ps->a))
+		{
+			ps_step3_sort(ps);
+			i = 0;
+		}
 		if (ps_step1_top(ps, m))
 			i = 1;
 		else if ((ps_step1_sec_end(ps, m)))
@@ -185,13 +208,21 @@ void		ps_step1_chunk(t_ps *ps, int m)
 void		ps_step_1(t_ps *ps)
 {
 	int		m;
+	int		sort;
 
-	while (ps->na > 3)
+	sort = ft_dllst_q_sort(ps->a);
+	if (sort == 2)
+		ps_step3_sort(ps);
+	else if (!sort)
+	{
+		while (ps->na > 3)
 	{
 		m = ft_dllst_medium_n(ps->a);
 		ps_step1_chunk(ps, m);
 	}
+	}
 }
+
 
 void		ps_step3_two(t_ps *ps)
 {
