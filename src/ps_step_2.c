@@ -19,16 +19,19 @@ void		ps_step2_f(t_ps *ps, int m)
 	t_dllist	*end;
 
 	end = ft_dllst_end(ps->b);
-	if (ps->b->n < ps->b->next->n)
+	if (ps->b != end)
 	{
-		ft_move(ps, 12);
+		if (ps->b->n < ps->b->next->n)
+		{
+			ft_move(ps, 12);
+		}
+		while (ps->b->n < end->n)
+		{
+			ft_move(ps, 42);
+			end = ft_dllst_end(ps->b);
+		}
+		ps->b = ft_dllst_begin(ps->b);
 	}
-	while (ps->b->n < end->n)
-	{
-		ft_move(ps, 42);
-		end = ft_dllst_end(ps->b);
-	}
-	ps->b = ft_dllst_begin(ps->b);
 }
 
 int			ps_step2_top(t_ps *ps, int m)
@@ -60,6 +63,8 @@ int			ps_step2_sec_end(t_ps *ps, int m)
 
 	ps->b = ft_dllst_begin(ps->b);
 	end = ft_dllst_end(ps->b);
+	if (ps->b == end)
+		return (0);
 	if (ps->b->next->n >= m && ps->b->next->n > end->n)
 		ft_move(ps, 32);
 	else
@@ -151,7 +156,7 @@ void		ps_step2(t_ps *ps, int m)
 
 	ps->chunk++;
 	i = 1;
-	while (i)
+	while (i && ps->b)
 	{
 		if (ps_step2_top(ps, m))
 			i = 1;

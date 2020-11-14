@@ -50,8 +50,7 @@ void			ft_dllst_insert_begin(t_dllist **lst0, t_dllist *new)
 			lst = lst->prev;
 		ft_dllst_insert_before(lst, new);
 	}
-	else
-		*lst0 = new;
+	*lst0 = new;
 }
 
 void			ft_dllst_insert_end(t_dllist **lst0, t_dllist *new)
@@ -363,6 +362,21 @@ int				ft_dllst_min_n(t_dllist *a)
 	return (min);
 }
 
+int				ft_dllst_max_n(t_dllist *a)
+{
+	int		max;
+
+	a = ft_dllst_begin(a);
+	max = a->n;
+	while (a)
+	{
+		if (max < a->n)
+			max = a->n;
+		a = a->next;
+	}
+	return (max);
+}
+
 int				ft_dllst_medium_n(t_dllist *d)
 {
 	int			mid;
@@ -497,4 +511,45 @@ int				ft_dllst_max_n_chunk(t_dllist *a, int ch)
 		a = a->next;
 	}
 	return (max);
+}
+
+
+int				ft_dllst_position_max(t_dllist *d, t_dllist **lst)
+{
+	int			i;
+	int			max;
+	int			p;
+	t_dllist	*c;
+
+	d = ft_dllst_begin(d);
+	max = d->n;
+	c = d;
+	p = 1;
+	d = d->next;
+	i = 2;
+	while (d)
+	{
+		if (d->n > max)
+		{
+			max = d->n;
+			c = d;
+			p = i;
+		}
+		d = d->next;
+		i++;
+	}
+	if (lst)
+		*lst = c;
+	return (p);
+}
+
+int				ft_dllst_test(t_dllist *a)
+{
+	a = ft_dllst_begin(a);
+	while (a->next)
+	{
+		if (a->next->prev != a)
+			return (0);
+	}
+	return (1);
 }

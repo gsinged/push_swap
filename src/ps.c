@@ -14,10 +14,22 @@
 
 int			ft_ps(t_ps *ps)
 {
+	int i;
+	i = 0;
+
 	ps_step_1(ps);
 	ft_three(ps);
-//	ps_step_2(ps);
-//	ps_step_2(ps);
-//	ps_step_3(ps);
+	while (ps->nb > 0)
+	{
+		ft_printf("%d\n", i);
+		if (i == 54)
+			i = 54;
+		ps_step_2(ps);
+		ps_step_3(ps);
+		i++;
+		if (i == 1)
+			i = 1;
+
+	}
 	return (0);
 }

@@ -87,17 +87,15 @@ int			ps_step_ra(t_ps *ps, int m)
 {
 	t_dllist	*a;
 	int			i;
-	int			mid;
 
 	i = 1;
 	a = ft_dllst_begin(ps->a);
-	mid = ps->na / 2 + 1;
-	while (i < mid && a->n >= m)
+	while (a && a->n >= m)
 	{
 		a = a->next;
 		i++;
 	}
-	if (a->n < m)
+	if (a && a->n < m)
 		return (i);
 	return (0);
 }
@@ -110,13 +108,12 @@ int			ps_step_rra(t_ps *ps, int m)
 
 	i = 1;
 	end = ft_dllst_end(ps->a);
-	mid = ps->na / 2;
-	while (i < mid && end->n >= m)
+	while (end && end->n >= m)
 	{
 		end = end->prev;
 		i++;
 	}
-	if (end->n < m)
+	if (end && end->n < m)
 		return (i);
 	return (0);
 }
@@ -197,12 +194,33 @@ void		ps_step_1(t_ps *ps)
 	}
 }
 
+void		ps_step3_two(t_ps *ps)
+{
+	int		i;
+
+	i = ft_dllst_position_max(ps->a, NULL);
+	i = ps->na - i;
+	while (i-- > 0)
+		ft_move(ps, 41);
+	if (ps->a->n > ps->a->next->n)
+		ft_move(ps, 11);
+}
+
 void		ps_step_3(t_ps *ps)
 {
 	int		m;
 	int		ch;
+	int		len;
 
 	ch = ft_dllst_max_chunk(ps->a);
 	m = ft_dllst_medium_n_chunk(ps->a, ch);
-	ps_step1_chunk(ps, m);
+	len = ft_dllst_lenght_chunk(ps->a, ch);
+	while (len > 2)
+	{
+		ps_step1_chunk(ps, m);
+		ch = ft_dllst_max_chunk(ps->a);
+		m = ft_dllst_medium_n_chunk(ps->a, ch);
+		len = ft_dllst_lenght_chunk(ps->a, ch);
+	}
+	ps_step3_two(ps);
 }

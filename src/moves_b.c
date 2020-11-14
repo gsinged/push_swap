@@ -23,6 +23,8 @@ void			move_ra(t_ps *ps)
 		ft_dllst_pull_out(c);
 		ft_dllst_insert_end(&(ps->a), c);
 	}
+	if (!(ft_dllst_test(ps->a)))
+		ft_printf("ERROR\n");
 }
 
 void			move_rb(t_ps *ps)
@@ -36,6 +38,8 @@ void			move_rb(t_ps *ps)
 		ft_dllst_pull_out(c);
 		ft_dllst_insert_end(&(ps->b), c);
 	}
+	if (!(ft_dllst_test(ps->b)))
+		ft_printf("ERROR\n");
 }
 
 void			move_rr(t_ps *ps)

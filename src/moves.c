@@ -24,7 +24,7 @@ void			ft_push_move_test(t_ps *ps, int op)
 		else if (op == 13)
 			ft_putstr("ss\n");
 		else if (op == 21)
-			ft_putstr("ps\n");
+			ft_putstr("pa\n");
 		else if (op == 22)
 			ft_putstr("pb\n");
 		else if (op == 31)
@@ -54,7 +54,7 @@ void			ft_push_move(t_ps *ps)
 	else if (ps->last == 13)
 		ft_putstr("ss\n");
 	else if (ps->last == 21)
-		ft_putstr("ps\n");
+		ft_putstr("pa\n");
 	else if (ps->last == 22)
 		ft_putstr("pb\n");
 	else if (ps->last == 31)
@@ -135,6 +135,8 @@ void			move_sa(t_ps *ps)
 		ft_dllst_change_ab(ft_dllst_begin(ps->a));
 		ps->a = ft_dllst_begin(ps->a);
 	}
+	if (!(ft_dllst_test(ps->a)))
+		ft_printf("ERROR\n");
 }
 
 void			move_sb(t_ps *ps)
@@ -144,6 +146,8 @@ void			move_sb(t_ps *ps)
 		ft_dllst_change_ab(ft_dllst_begin(ps->b));
 		ps->b = ft_dllst_begin(ps->b);
 	}
+	if (!(ft_dllst_test(ps->b)))
+		ft_printf("ERROR\n");
 }
 
 void			move_ss(t_ps *ps)
@@ -166,6 +170,10 @@ void			move_pa(t_ps *ps)
 		ps->a = c;
 		ps->na++;
 	}
+	if (!(ft_dllst_test(ps->a)))
+		ft_printf("ERROR\n");
+	if (!(ft_dllst_test(ps->b)))
+		ft_printf("ERROR\n");
 }
 
 void			move_pb(t_ps *ps)
@@ -182,4 +190,8 @@ void			move_pb(t_ps *ps)
 		ps->b = c;
 		ps->nb++;
 	}
+	if (!(ft_dllst_test(ps->a)))
+		ft_printf("ERROR\n");
+	if (!(ft_dllst_test(ps->b)))
+		ft_printf("ERROR\n");
 }
