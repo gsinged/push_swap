@@ -14,7 +14,7 @@
 
 
 
-void		ps_step2_f(t_ps *ps, int m)
+void		ps_step2_f(t_ps *ps)
 {
 	t_dllist	*end;
 
@@ -39,7 +39,7 @@ int			ps_step2_top(t_ps *ps, int m)
 	ps->b = ft_dllst_begin(ps->b);
 	if (ps->b->n < m)
 		return (0);
-	ps_step2_f(ps, m);
+	ps_step2_f(ps);
 	ps->b->chunk = ps->chunk;
 	ft_move(ps, 21);
 	return (1);

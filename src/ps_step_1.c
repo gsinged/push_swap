@@ -30,7 +30,7 @@ int			ft_three(t_ps *ps)
 	return (0);
 }
 
-void		ps_step1_f(t_ps *ps, int m)
+void		ps_step1_f(t_ps *ps)
 {
 	t_dllist	*end;
 
@@ -52,7 +52,7 @@ int			ps_step1_top(t_ps *ps, int m)
 	ps->a = ft_dllst_begin(ps->a);
 	if (ps->a->n >= m)
 		return (0);
-	ps_step1_f(ps, m);
+	ps_step1_f(ps);
 	ps->a->chunk = ps->chunk;
 	ft_move(ps, 22);
 	return (1);
@@ -104,7 +104,6 @@ int			ps_step_rra(t_ps *ps, int m)
 {
 	t_dllist	*end;
 	int			i;
-	int			mid;
 
 	i = 1;
 	end = ft_dllst_end(ps->a);
