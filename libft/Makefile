@@ -19,6 +19,10 @@ C_DIR = ./src/
 O_DIR = ./obj/
 H_DIR = ./inc/
 
+C_PRINTF_DIR = ./ft_printf/src/
+H_PRINTF_DIR = ./ft_printf/inc/
+O_PRINTF_DIR = ./ft_printf/obj/
+
 ALL_C = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
         ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c \
         ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
@@ -38,21 +42,35 @@ ALL_O = $(patsubst %.c, %.o, $(ALL_C))
 SRC = $(patsubst %, $(C_DIR)%, $(ALL_C))
 OBJ = $(patsubst %, $(O_DIR)%, $(ALL_O))
 
+PRINTF_C = ft_printf.c ft_frmt_spec.c ft_spec_parser.c ft_specifier.c \
+		ft_tp1_process.c ft_tp5_process.c ft_tp1_assist.c ft_tp2_process.c \
+		ft_fnum.c ft_part_integer.c ft_bigint.c ft_bigint_multi.c \
+		ft_part_fraction.c ft_tp2_rounding.c \
+		ft_tp2_print.c ft_tp3_4_process.c ft_general.c ft_tp2_assist.c \
+		ft_tp2_frc_print.c ft_frc_add.c ft_bigint_multi_a.c ft_spec_parser_a.c
+
+PRINTF_O = $(patsubst %.c, %.o, $(PRINTF_C))
+
+PRINTF_OBJ = $(patsubst %, $(O_PRINTF_DIR)%, $(PRINTF_O))
+
 all: $(NAME)
 
 o_dir:
 	@mkdir -p $(O_DIR)
+	@mkdir -p $(O_PRINTF_DIR)
 
-$(NAME): o_dir $(OBJS)
-	@ar rc $(NAME) $(OBJS)
+$(NAME): o_dir $(OBJ) $(PRINTF_OBJ)
+	@ar rc $(NAME) $(OBJ) $(PRINTF_OBJ)
 	@ranlib $(NAME)
 
 $(O_DIR)%.o: $(C_DIR)%.c
-	@make o_dir
-	@$(CC) $(FLAGS) -c $< -o $@ -I./$(H_DIR);
+	$(CC) $(FLAGS) -c $< -o $@ -I$(H_DIR) -I$(H_PRINTF_DIR);
+
+$(O_PRINTF_DIR)%.o: $(C_PRINTF_DIR)%.c
+	$(CC) $(FLAGS) -c $< -o $@ -I$(H_DIR) -I$(H_PRINTF_DIR);
 
 clean:
-	@rm -rf $(O_DIR)
+	@rm -rf $(O_DIR) $(O_PRINTF_DIR)
 
 fclean: clean
 	@rm -f $(NAME)

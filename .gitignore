@@ -56,3 +56,6 @@ CMakeLists.txt
 cmake-build-debug
 .idea
 *.swp
+push_swap
+checker
+test.sh
