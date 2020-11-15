@@ -21,7 +21,7 @@ int			ft_ps(t_ps *ps)
 	ft_three(ps);
 	while (ps->nb > 0)
 	{
-		ft_printf("%d\n", i);
+//		ft_printf("%d\n", i);
 		if (i == 54)
 			i = 54;
 		ps_step_2(ps);

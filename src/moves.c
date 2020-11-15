@@ -69,7 +69,7 @@ void			ft_push_move(t_ps *ps)
 		ft_putstr("rrb\n");
 	else if (ps->last == 43)
 		ft_putstr("rrr\n");
-	if (ps->view)
+	if (0 && ps->view)
 		ft_ps_print_ab(ps);
 }
 

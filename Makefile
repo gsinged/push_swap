@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME_PS = push_swap
+NAME_CH
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
@@ -20,14 +21,20 @@ OBJDIR  = ./obj/
 FTDIR   = ./libft/
 
 SRC = init_ps.c moves.c moves_b.c moves_c.c ps.c ps_step_1.c ps_step_2.c \
-      push_swap.c struct_doubly_linked_list.c struct_ps.c test.c
+       struct_doubly_linked_list.c struct_ps.c test.c
+
+PS_SRC = push_swap.c
+PS_OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
+
+CH_SRC = checker.c
+CH_SRC = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 OBJ	= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 LIBFT = $(FTDIR)libft.a
 
 .PHONY: all clean fclean count
 
-all: $(NAME)
+all: $(NAME_PS)
 
 obj:
 	mkdir -p $(OBJDIR)
@@ -38,8 +45,11 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 $(LIBFT):
 	make -C $(FTDIR)
 
-$(NAME): obj $(LIBFT) $(OBJ)
-	$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME_PS): obj $(LIBFT) $(OBJ) $(PS_OBJ)
+	$(CC) $(OBJ) $(PS_OBJ) $(LIBFT) -o $(NAME_PS)
+
+$(NAME_CH): obj $(LIBFT) $(OBJ) $(CH_OBJ)
+	$(CC) $(OBJ) $(CH_OBJ) $(LIBFT) -o $(NAME_CH)
 
 count:
 	wc ./src/*.c ./inc/*.h
