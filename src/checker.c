@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsinged <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/09 21:45:19 by gsinged           #+#    #+#             */
-/*   Updated: 2020/11/09 21:45:21 by gsinged          ###   ########.fr       */
+/*   Created: 2020/11/15 04:48:53 by gsinged           #+#    #+#             */
+/*   Updated: 2020/11/15 04:48:55 by gsinged          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int				print_error(void)
-{
-	ft_putendl("Error");
-	return (0);
-}
-
-static int		push_swap(int argc, char **argv)
+static int		checker(int argc, char **argv)
 {
 	t_ps		*ps;
 
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
-	ps->view = 1;
-	if (ps->len <= 3)
-		ft_three(ps);
-	else
-		ft_ps(ps);
-	if (ps->last)
-		ft_push_move(ps);
-	ft_ps_del(&ps);
-	return (1);
+
 }
 
 int				main(int argc, char **argv)
 {
 	if (argc == 1)
 		return (print_error());
-	if (!(push_swap(argc, argv)))
+	if (!(checker(argc, argv)))
 		return (print_error());
 	return (0);
 }
+

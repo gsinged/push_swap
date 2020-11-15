@@ -67,6 +67,7 @@ int					ft_dllst_max_chunk(t_dllist *a);
 int					ft_dllst_lenght_chunk(t_dllist *d, int ch);
 int					ft_dllst_test(t_dllist *a);
 
+int					print_error(void);
 t_ps				*init_ps(int argc, char **argv);
 void				ft_ps_del(t_ps **ps);
 t_ps				*ft_ps_del_null(t_ps **ps);
