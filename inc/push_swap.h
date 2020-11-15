@@ -99,4 +99,7 @@ void				ps_step_3(t_ps *ps);
 int					ch(t_ps *ps);
 int					print_res(int res);
 
+long long int		ps_atoi(const char *str);
+int					ft_is_int(long long int n);
+
 #endif

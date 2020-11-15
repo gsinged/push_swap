@@ -12,6 +12,35 @@
 
 #include "push_swap.h"
 
+static int			argument_is_digit(int argc, char **argv)
+{
+	int			i;
+	int			j;
+	int			s;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		s = 0;
+		if (argv[i][s] == '-' || argv[i][s] == '+')
+		{
+			if (!argv[i][++s])
+				return (0);
+		}
+		while (argv[i][j + s])
+		{
+			if (j > 10)
+				return (0);
+			if (!ft_isdigit(argv[i][j + s]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 static int			cmp_val_stack_a(t_dllist *a, int n)
 {
 	if (!a)
@@ -52,12 +81,13 @@ static t_dllist		*init_stack_a(int argc, char **argv, int *size, int i)
 {
 	t_dllist	*a;
 	t_dllist	*c;
-	int			n;
+	long int	n;
 
 	a = NULL;
 	while (i < argc)
 	{
-		n = ft_atoi(argv[i]);
+		if (!(ft_is_int((n = ps_atoi(argv[i])))))
+			return (NULL);
 		if (!(c = ft_dllst_new(n)))
 		{
 			ft_dllst_delete(&a);
@@ -84,6 +114,8 @@ t_ps				*init_ps(int argc, char **argv)
 	int			size;
 
 	size = 0;
+	if (!argument_is_digit(argc, argv))
+		return (NULL);
 	if (!(ps = (t_ps *)malloc(sizeof(t_ps))))
 		return (NULL);
 	ft_bzero(ps, sizeof(t_ps));

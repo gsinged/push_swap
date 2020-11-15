@@ -46,7 +46,7 @@ static int		ch_commands(char *line)
 			return (41);
 		else if (!(ft_strcmp(line, "rrb")))
 			return (42);
-		else if (!(ft_strcmp(line, "rbb")))
+		else if (!(ft_strcmp(line, "rrr")))
 			return (43);
 	}
 	return (0);
@@ -74,7 +74,7 @@ int				ch(t_ps *ps)
 		ft_move_n(ps, op);
 		ch_free_line(&line);
 	}
-	if (ft_dllst_q_sort(ps->a) == 1)
+	if (ft_dllst_q_sort(ps->a) == 1 && !ps->nb)
 		return (print_res(1));
 	else
 		return (print_res(0));

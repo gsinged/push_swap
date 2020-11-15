@@ -516,7 +516,6 @@ int				ft_dllst_max_n_chunk(t_dllist *a, int ch)
 	return (max);
 }
 
-
 int				ft_dllst_position_max(t_dllist *d, t_dllist **lst)
 {
 	int			i;

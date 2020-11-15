@@ -30,15 +30,13 @@ static int		checker(int argc, char **argv)
 	if (!ch(ps))
 		return (0);
 	return (1);
-
 }
 
 int				main(int argc, char **argv)
 {
 	if (argc == 1)
-		return (print_error());
+		return (0);
 	if (!(checker(argc, argv)))
 		return (print_error());
 	return (0);
 }
-
