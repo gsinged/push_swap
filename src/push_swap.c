@@ -12,12 +12,6 @@
 
 #include "push_swap.h"
 
-int				print_error(void)
-{
-	ft_putendl("Error");
-	return (0);
-}
-
 static int		push_swap(int argc, char **argv)
 {
 	t_ps		*ps;

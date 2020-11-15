@@ -24,17 +24,17 @@ SRC = init_ps.c moves.c moves_b.c moves_c.c ps.c ps_step_1.c ps_step_2.c \
        struct_doubly_linked_list.c struct_ps.c test.c
 
 PS_SRC = push_swap.c
-PS_OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
+PS_OBJ = $(addprefix $(OBJDIR),$(PS_SRC:.c=.o))
 
-CH_SRC = checker.c
-CH_SRC = $(addprefix $(OBJDIR),$(SRC:.c=.o))
+CH_SRC = checker.c ch.c
+CH_OBJ = $(addprefix $(OBJDIR),$(CH_SRC:.c=.o))
 
 OBJ	= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 LIBFT = $(FTDIR)libft.a
 
 .PHONY: all clean fclean count
 
-all: $(NAME_PS)
+all: $(NAME_PS) $(NAME_CH)
 
 obj:
 	mkdir -p $(OBJDIR)
@@ -43,7 +43,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -I $(INCDIR) -I $(FTDIR)/inc/ -I $(FTDIR)/ft_printf/inc/ -o $@ -c $<
 
 $(LIBFT):
-	make -C $(FTDIR)
+	make -sC $(FTDIR)
 
 $(NAME_PS): obj $(LIBFT) $(OBJ) $(PS_OBJ)
 	$(CC) $(OBJ) $(PS_OBJ) $(LIBFT) -o $(NAME_PS)

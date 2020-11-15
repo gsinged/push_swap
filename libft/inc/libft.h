@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include "libftprintf.h"
+# include "get_next_line.h"
 # include <string.h>
 
 typedef struct		s_list

@@ -12,12 +12,24 @@
 
 #include "push_swap.h"
 
+int				print_res(int res)
+{
+	if (res)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
+	return (1);
+}
+
 static int		checker(int argc, char **argv)
 {
 	t_ps		*ps;
 
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
+	if (!ch(ps))
+		return (0);
+	return (1);
 
 }
 

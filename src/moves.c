@@ -79,6 +79,8 @@ void			ft_move_n(t_ps *ps, int m)
 		move_sa(ps);
 	else if (m == 12)
 		move_sb(ps);
+	else if (m == 13)
+		move_ss(ps);
 	else if (m == 21)
 		move_pa(ps);
 	else if (m == 22)
@@ -87,10 +89,14 @@ void			ft_move_n(t_ps *ps, int m)
 		move_ra(ps);
 	else if (m == 32)
 		move_rb(ps);
+	else if (m == 33)
+		move_rr(ps);
 	else if (m == 41)
 		move_rra(ps);
 	else if (m == 42)
 		move_rrb(ps);
+	else if (m == 43)
+		move_rrr(ps);
 }
 
 int				ft_moves_exc(t_ps *ps, int m)

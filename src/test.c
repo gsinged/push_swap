@@ -11,3 +11,9 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int				print_error(void)
+{
+	ft_putendl("Error");
+	return (0);
+}

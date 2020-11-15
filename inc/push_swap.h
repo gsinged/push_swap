@@ -75,6 +75,7 @@ t_ps				*ft_ps_del_null(t_ps **ps);
 void				ft_ps_print_ab(t_ps *ps);
 
 void				ft_move(t_ps *ps, int op);
+void				ft_move_n(t_ps *ps, int m);
 void				ft_push_move(t_ps *ps);
 
 void				move_sa(t_ps *ps);
@@ -94,5 +95,8 @@ int					ft_three(t_ps *ps);
 void				ps_step_1(t_ps *ps);
 void				ps_step_2(t_ps *ps);
 void				ps_step_3(t_ps *ps);
+
+int					ch(t_ps *ps);
+int					print_res(int res);
 
 #endif
