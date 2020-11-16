@@ -101,9 +101,9 @@ void		ps_step_1(t_ps *ps)
 	else if (!sort)
 	{
 		while (ps->na > 3)
-	{
-		m = ft_dllst_medium_n(ps->a);
-		ps_step1_chunk(ps, m);
-	}
+		{
+			m = ft_dllst_medium_n(ps->a);
+			ps_step1_chunk(ps, m);
+		}
 	}
 }

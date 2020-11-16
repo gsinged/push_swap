@@ -42,6 +42,6 @@ int				main(int argc, char **argv)
 		return (0);
 	if (!(checker(argc, argv)))
 		return (print_error());
-	exit (0);
+	exit(0);
 	return (0);
 }

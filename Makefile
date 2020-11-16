@@ -63,7 +63,7 @@ clean:
 	make -sC $(FTDIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME_PS) $(NAME_CH)
 	make -sC $(FTDIR) fclean
 
 re: fclean all
