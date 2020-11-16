@@ -28,7 +28,11 @@ static int		checker(int argc, char **argv)
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
 	if (!ch(ps))
+	{
+		ft_ps_del(&ps);
 		return (0);
+	}
+	ft_ps_del(&ps);
 	return (1);
 }
 
@@ -38,5 +42,6 @@ int				main(int argc, char **argv)
 		return (0);
 	if (!(checker(argc, argv)))
 		return (print_error());
+	exit (0);
 	return (0);
 }
