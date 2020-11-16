@@ -20,8 +20,12 @@ INCDIR  = ./inc/
 OBJDIR  = ./obj/
 FTDIR   = ./libft/
 
-SRC = init_ps.c move.c moves.c moves_b.c moves_c.c ps.c ps_atoi.c ps_step1_chunk.c ps_step2_chunk.c ps_step_1.c \
-		ps_step_2.c ps_step_3.c struct_doubly_linked_list.c struct_doubly_linked_list_b.c struct_doubly_linked_list_c.c struct_doubly_linked_list_d.c struct_doubly_linked_list_e.c struct_doubly_linked_list_f.c struct_doubly_linked_list_g.c struct_ps.c
+SRC = init_ps.c move.c moves.c moves_b.c moves_c.c ps.c ps_atoi.c \
+	ps_step1_chunk.c ps_step2_chunk.c ps_step_1.c ps_step_2.c ps_step_3.c \
+	struct_doubly_linked_list.c struct_doubly_linked_list_b.c \
+	struct_doubly_linked_list_c.c struct_doubly_linked_list_d.c \
+	struct_doubly_linked_list_e.c struct_doubly_linked_list_f.c \
+	struct_doubly_linked_list_g.c struct_ps.c
 
 PS_SRC = push_swap.c
 PS_OBJ = $(addprefix $(OBJDIR),$(PS_SRC:.c=.o))

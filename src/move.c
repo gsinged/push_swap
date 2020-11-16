@@ -1,6 +1,39 @@
 
 #include "push_swap.h"
 
+void			ft_push_move_test(t_ps *ps, int op)
+{
+	if (0)
+	{
+		ft_printf("============TEST==========\n");
+		if (op == 11)
+			ft_putstr("sa\n");
+		else if (op == 12)
+			ft_putstr("sb\n");
+		else if (op == 13)
+			ft_putstr("ss\n");
+		else if (op == 21)
+			ft_putstr("pa\n");
+		else if (op == 22)
+			ft_putstr("pb\n");
+		else if (op == 31)
+			ft_putstr("ra\n");
+		else if (op == 32)
+			ft_putstr("rb\n");
+		else if (op == 33)
+			ft_putstr("rr\n");
+		else if (op == 41)
+			ft_putstr("rra\n");
+		else if (op == 42)
+			ft_putstr("rrb\n");
+		else if (op == 43)
+			ft_putstr("rrr\n");
+//	if (ps->view)
+		ft_ps_print_ab(ps);
+		ft_printf("============TEST_END==========\n\n\n");
+	}
+}
+
 void			ft_push_move(t_ps *ps)
 {
 	if (ps->last == 11)
