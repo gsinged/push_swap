@@ -75,7 +75,6 @@ int				ch(t_ps *ps)
 		ft_move_n(ps, op);
 		ch_free_line(&line);
 	}
-	ch_free_line(&line);
 	if (ft_dllst_q_sort(ps->a) == 1 && !ps->nb)
 		return (print_res(1));
 	else
