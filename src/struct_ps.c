@@ -73,7 +73,4 @@ void		ft_ps_print_ab(t_ps *ps)
 	ft_printf("%*c\t%*c\n", ps->size, '-', ps->size, '-');
 	ft_printf("%*c\t%*c\n", ps->size, 'a', ps->size, 'b');
 	ft_printf("-----%d-----\n\n", ++i);
-
-//	if (i == 975)
-//		i = 975;
 }

@@ -129,6 +129,5 @@ t_ps				*init_ps(int argc, char **argv)
 	ps->len = ft_dllst_lenght(ps->a);
 	ps->na = ps->len;
 	ps->nb = 0;
-//	ft_ps_print_ab(ps);
 	return (ps);
 }

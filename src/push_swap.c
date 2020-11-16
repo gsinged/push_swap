@@ -12,13 +12,25 @@
 
 #include "push_swap.h"
 
-static int		push_swap(int argc, char **argv)
+static int		ps_viewer(int argc, char **argv)
+{
+	if (*argv[1] == '-' && argv[1][1] == 'v' && !argv[1][2])
+		return (1);
+	return (0);
+}
+
+static int		push_swap(int argc, char **argv, int viewer)
 {
 	t_ps		*ps;
 
 	if (!(ps = init_ps(argc, argv)))
 		return (0);
-	ps->view = 1;
+	if ((ps->view = viewer))
+	{
+		ft_putstr("init\n");
+		ft_ps_print_ab(ps);
+	}
+
 	if (ps->len <= 3)
 		ft_three(ps);
 	else
@@ -31,9 +43,16 @@ static int		push_swap(int argc, char **argv)
 
 int				main(int argc, char **argv)
 {
+	int		viewer;
+
 	if (argc == 1)
 		return (print_error());
-	if (!(push_swap(argc, argv)))
+	if ((viewer = ps_viewer(argc, argv)))
+	{
+		argc++;
+		argv++;
+	}
+	if (!(push_swap(argc, argv, viewer)))
 		return (print_error());
 	return (0);
 }
